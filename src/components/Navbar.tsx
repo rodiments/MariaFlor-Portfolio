@@ -25,9 +25,12 @@ const Navbar = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'py-4' : 'py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Mobile-only solid background or Desktop glass/transparent background */}
         <div className={`rounded-2xl px-8 py-3 flex items-center justify-between transition-all duration-300 ${
-          isOpen ? 'bg-black border-white/20' : (scrolled ? 'glass shadow-2xl shadow-aurora-900/20 border-white/10' : 'border-transparent')
-        }`}>
+          isOpen 
+            ? 'bg-black border-white/20' 
+            : 'bg-black md:bg-transparent md:glass shadow-2xl md:shadow-none border-white/10 md:border-transparent'
+        } ${scrolled && !isOpen ? 'md:glass md:shadow-aurora-900/20 md:border-white/10' : ''}`}>
           <Link to="/" className="flex-shrink-0 font-black text-2xl tracking-tighter text-white hover:opacity-80 transition-opacity">
             MF.
           </Link>
@@ -53,7 +56,8 @@ const Navbar = () => {
 
           <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white hover:text-aurora-400 p-2"
+            className="md:hidden text-white hover:text-aurora-400 p-2 bg-midnight-900/50 rounded-xl border border-white/10"
+            aria-label="Toggle Menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
@@ -61,21 +65,21 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile menu */}
-        <div className={`md:hidden absolute top-20 left-4 right-4 bg-black rounded-3xl p-8 transition-all duration-300 origin-top border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.8)] ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+        {/* Mobile menu dropdown */}
+        <div className={`md:hidden absolute top-20 left-4 right-4 bg-black rounded-3xl p-6 transition-all duration-300 origin-top border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,1)] ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
                 to={link.path} 
                 onClick={() => setIsOpen(false)}
-                className={`px-6 py-5 transition-all rounded-2xl font-black uppercase tracking-widest flex items-center justify-between group ${
-                  location.pathname === link.path ? 'bg-aurora-600 text-white' : 'text-white hover:bg-white/5'
+                className={`px-6 py-4 transition-all rounded-2xl font-black uppercase tracking-widest flex items-center justify-between ${
+                  location.pathname === link.path ? 'bg-aurora-600 text-white' : 'text-white hover:bg-white/10'
                 }`}
               >
-                <span>{link.name}</span>
+                <span className="text-sm">{link.name}</span>
                 {location.pathname === link.path && (
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
                   </svg>
                 )}
