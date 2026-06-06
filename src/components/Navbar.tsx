@@ -60,14 +60,14 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu */}
-        <div className={`md:hidden absolute top-24 left-4 right-4 glass rounded-3xl p-8 transition-all duration-300 origin-top ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
-          <div className="flex flex-col space-y-8">
+        <div className={`md:hidden absolute top-24 left-4 right-4 bg-midnight-950/95 backdrop-blur-2xl rounded-3xl p-8 transition-all duration-300 origin-top border border-white/10 shadow-2xl ${isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+          <div className="flex flex-col space-y-6">
             {navLinks.map((link) => (
               <Link 
                 key={link.name}
                 to={link.path} 
                 onClick={() => setIsOpen(false)}
-                className={`px-3 py-2 transition-colors text-lg font-black uppercase tracking-widest ${
+                className={`px-3 py-4 transition-colors text-lg font-black uppercase tracking-widest border-b border-white/5 last:border-0 ${
                   location.pathname === link.path ? 'text-aurora-400' : 'text-white'
                 }`}
               >

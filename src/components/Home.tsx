@@ -58,36 +58,36 @@ const Home = () => {
   return (
     <>
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex items-center pt-16 px-4 sm:px-6 lg:px-8">
+      <section id="home" className="min-h-screen flex items-center pt-24 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in text-center md:text-left order-2 md:order-1">
             <div>
-              <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-4">
                 Hi, I'm <span className="bg-gradient-to-r from-amber-600 to-emerald-600 bg-clip-text text-transparent">Maria Flor</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 max-w-lg leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-lg mx-auto md:mx-0 leading-relaxed">
                 I'm passionate about designing websites that are not only beautiful and functional, but also create meaningful user experiences. Let's build something amazing together.
               </p>
             </div>
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
               <Link 
                 to="/projects" 
-                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-3 rounded-full font-medium transition-all inline-block shadow-lg hover:shadow-emerald-500/50"
+                className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-full font-medium transition-all inline-block shadow-lg hover:shadow-emerald-500/50 text-center"
               >
                 Explore My Work
               </Link>
               <Link 
                 to="/contact" 
-                className="border-2 border-amber-600 text-amber-600 hover:bg-amber-600/10 px-8 py-3 rounded-full font-medium transition-all inline-block"
+                className="border-2 border-amber-600 text-amber-600 hover:bg-amber-600/10 px-8 py-4 rounded-full font-medium transition-all inline-block text-center"
               >
                 Get in touch
               </Link>
             </div>
           </div>
-          <div className="flex justify-center md:justify-end animate-slide-up">
+          <div className="flex justify-center md:justify-end animate-slide-up order-1 md:order-2">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-amber-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-              <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-emerald-500 shadow-2xl shadow-emerald-500/30 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-emerald-500 shadow-2xl shadow-emerald-500/30 flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
                 <img 
                   src="/images/Maria.jpg" 
                   alt="Maria Flor" 
